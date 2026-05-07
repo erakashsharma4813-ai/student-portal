@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir c:Codestudent_portal_fresh /s /b)"
+    ]
+  }
+}

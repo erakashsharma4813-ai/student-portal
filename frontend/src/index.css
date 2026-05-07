@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors font-medium;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+
+  .sketch-card {
+    position: relative;
+  }
+
+  .sketch-card::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 2px dashed rgba(15, 23, 42, 0.12);
+    border-radius: 10px 8px 12px 7px;
+    pointer-events: none;
+  }
+
+  .sketch-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 2px solid rgba(249, 115, 22, 0.16);
+    border-radius: 13px 9px 14px 8px;
+    pointer-events: none;
+    transform: rotate(-0.7deg);
+  }
+
+  /* Chalkboard Styles */
+  .chalkboard {
+    background: linear-gradient(135deg, #1a3d2e 0%, #0d2118 100%);
+    position: relative;
+    box-shadow:
+      inset 0 0 50px rgba(0,0,0,0.5),
+      0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  .chalkboard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 1px, transparent 1px),
+      radial-gradient(circle at 60% 70%, rgba(255,255,255,0.02) 1px, transparent 1px),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 200px 200px, 150px 150px, 180px 180px;
+    pointer-events: none;
+  }
+
+  .chalkboard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    pointer-events: none;
+  }
+
+  .chalk-text {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', cursive;
+    text-shadow:
+      1px 1px 0px rgba(255,255,255,0.1),
+      -1px -1px 0px rgba(0,0,0,0.3);
+  }
+
+  .chalk-notice {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .chalk-notice:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
+  }
+
+
+  /* Blob animations */
+  @keyframes blob-float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  .blob-animate {
+    animation: blob-float 8s ease-in-out infinite;
+  }
+
+  .career-dream-scene {
+    position: relative;
+    height: 360px;
+    border-radius: 32px;
+  }
+
+  .dream-path {
+    position: absolute;
+    inset: 28px 24px;
+    border: 3px dashed rgba(124, 58, 237, 0.28);
+    border-radius: 45% 55% 48% 52%;
+    animation: dream-pulse 4s ease-in-out infinite;
+  }
+
+  .study-desk {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    width: 220px;
+    height: 190px;
+    transform: translateX(-50%);
+    animation: study-focus 3.8s ease-in-out infinite;
+  }
+
+  .student-head {
+    position: absolute;
+    left: 82px;
+    top: 8px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #f8b47c;
+    border: 4px solid #7c2d12;
+    box-shadow: inset -8px -5px 0 rgba(194, 65, 12, 0.18);
+    z-index: 2;
+  }
+
+  .student-head::before,
+  .student-head::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    width: 6px;
+    height: 6px;
+    background: #1f2937;
+    border-radius: 50%;
+  }
+
+  .student-head::before {
+    left: 15px;
+  }
+
+  .student-head::after {
+    right: 15px;
+  }
+
+  .student-hair {
+    position: absolute;
+    left: 6px;
+    top: -8px;
+    width: 44px;
+    height: 26px;
+    border-radius: 50% 50% 35% 35%;
+    background: #3f1d0b;
+    transform: rotate(-8deg);
+  }
+
+  .student-body {
+    position: absolute;
+    left: 72px;
+    top: 62px;
+    width: 78px;
+    height: 70px;
+    border-radius: 28px 28px 16px 16px;
+    background: linear-gradient(135deg, #22c55e, #0ea5e9);
+    border: 4px solid white;
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.18);
+  }
+
+  .desk-top {
+    position: absolute;
+    left: 20px;
+    bottom: 48px;
+    width: 180px;
+    height: 64px;
+    border-radius: 14px;
+    background: white;
+    border: 4px solid #f59e0b;
+    box-shadow: 0 15px 25px rgba(15, 23, 42, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 4;
+  }
+
+  .pencil-write {
+    animation: pencil-write 1.2s ease-in-out infinite;
+  }
+
+  .desk-leg {
+    position: absolute;
+    bottom: 8px;
+    width: 16px;
+    height: 48px;
+    background: #92400e;
+    border-radius: 10px;
+  }
+
+  .left-leg {
+    left: 48px;
+  }
+
+  .right-leg {
+    right: 48px;
+  }
+
+  .study-label,
+  .future-ribbon {
+    position: absolute;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+  }
+
+  .study-label {
+    left: 38px;
+    bottom: 0;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    border-radius: 999px;
+    padding: 8px 18px;
+  }
+
+  .future-ribbon {
+    right: 6px;
+    bottom: 42px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border-radius: 16px;
+    padding: 10px 18px;
+    animation: future-glow 2.5s ease-in-out infinite;
+  }
+
+  .career-card {
+    position: absolute;
+    width: 128px;
+    min-height: 118px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 4px solid white;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 900;
+    color: #1f2937;
+    transform-origin: center;
+  }
+
+  .career-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .career-doctor {
+    left: 18px;
+    top: 24px;
+    animation: career-pop 6s ease-in-out infinite;
+  }
+
+  .career-pilot {
+    right: 32px;
+    top: 18px;
+    animation: career-pop 6s ease-in-out infinite 1.2s;
+  }
+
+  .career-engineer {
+    right: 18px;
+    top: 172px;
+    animation: career-pop 6s ease-in-out infinite 2.4s;
+  }
+
+  @keyframes dream-pulse {
+    0%, 100% {
+      opacity: 0.55;
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(2deg) scale(1.03);
+    }
+  }
+
+  @keyframes study-focus {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-6px);
+    }
+  }
+
+  @keyframes pencil-write {
+    0%, 100% {
+      transform: translate(0, 0) rotate(-18deg);
+    }
+    50% {
+      transform: translate(8px, 3px) rotate(-8deg);
+    }
+  }
+
+  @keyframes career-pop {
+    0%, 18%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    8% {
+      transform: translateY(-12px) scale(1.06) rotate(-2deg);
+    }
+  }
+
+  @keyframes future-glow {
+    0%, 100% {
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+    }
+    50% {
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.42);
+    }
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
